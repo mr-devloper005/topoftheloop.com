@@ -4,7 +4,7 @@ export const siteIdentity = {
   tagline: process.env.NEXT_PUBLIC_SITE_TAGLINE || 'PDF + Profile platform',
   description:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-    'A pdf + profile site for Topoftheloop, built for clean discovery and structured publishing.',
+    'Build and export professional PDF profiles with templates and a simple, focused workflow.',
   domain: process.env.NEXT_PUBLIC_SITE_DOMAIN || 'topoftheloop.com',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://topoftheloop.com',
   ogImage: process.env.NEXT_PUBLIC_SITE_OG_IMAGE || '/og-default.png',
