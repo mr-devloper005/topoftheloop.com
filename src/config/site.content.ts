@@ -2,24 +2,24 @@ import type { TaskKey } from '@/lib/site-config'
 
 export const siteContent = {
   navbar: {
-    tagline: 'PDF + Profile platform',
+    tagline: 'Professional PDF profiles',
   },
   footer: {
-    tagline: 'PDF + Profile platform',
+    tagline: 'Professional PDF profiles',
   },
   hero: {
-    badge: 'Latest stories and visuals',
-    title: ['A thoughtful home for', 'stories, visuals, and discovery.'],
-    description: 'A PDF + Profile site for Topoftheloop, built for clean discovery and structured publishing.',
+    badge: 'PDF profiles',
+    title: ['Build polished', 'PDF profiles in minutes.'],
+    description: 'Create print-ready professional PDF profiles, pick a template, and export when you are ready—without design-tool friction.',
     primaryCta: {
-      label: 'Read latest stories',
-      href: '/articles',
+      label: 'Browse PDF library',
+      href: '/pdf',
     },
     secondaryCta: {
-      label: 'Explore visuals',
-      href: '/images',
+      label: 'Get started',
+      href: '/register',
     },
-    searchPlaceholder: 'Search stories, visuals, listings, and more',
+    searchPlaceholder: 'Search templates, topics, and PDFs',
     focusLabel: 'Focus',
     featureCardBadge: 'latest cover rotation',
     featureCardTitle: 'Latest posts shape the visual identity of the homepage.',
@@ -28,40 +28,39 @@ export const siteContent = {
   },
   home: {
     metadata: {
-      title: 'Stories, visuals, and discoverable content',
-      description: 'A PDF + Profile site for Topoftheloop, built for clean discovery and structured publishing.',
-      openGraphTitle: 'Stories, visuals, and discoverable content',
-      openGraphDescription:
-        'Discover articles, visual posts, and connected content through a calmer reading-first experience.',
-      keywords: ['story platform', 'article site', 'visual content', 'content discovery'],
+      title: 'PDF Profile — professional exports in minutes',
+      description: 'Build and export professional PDF profiles with templates, secure storage, and a workflow tuned for people who need polished documents fast.',
+      openGraphTitle: 'PDF Profile — professional exports in minutes',
+      openGraphDescription: 'Build and export professional PDF profiles with templates and a calm, focused experience.',
+      keywords: ['pdf profile', 'pdf resume', 'pdf template', 'professional pdf', 'export pdf'],
     },
     introBadge: 'About the platform',
-    introTitle: 'Built for reading, browsing, and connecting different kinds of content.',
+    introTitle: 'A focused home for building and exporting professional PDF profiles.',
     introParagraphs: [
-      'This site brings together article-style reading, visual browsing, and structured discovery so visitors can move naturally between different content types.',
-      'Instead of separating stories, visuals, and supporting resources into disconnected surfaces, the platform keeps them connected in one place with consistent navigation and easier exploration.',
-      'Whether someone starts with a story, an image-led post, a listing, or a resource page, they can keep discovering related content without friction.',
+      'The experience centers on template-driven PDF profiles you can update and export without juggling many unrelated product areas.',
+      'You get structured sections, consistent typography, and a simple path from edit to print-ready file.',
+      'The site stays scoped to what matters for PDF work so navigation stays light and task-oriented.',
     ],
     sideBadge: 'At a glance',
     sidePoints: [
-      'Reading-first homepage with stronger emphasis on stories and imagery.',
-      'Connected sections for articles, visuals, listings, and supporting resources.',
-      'Cleaner browsing rhythm designed to make exploration feel easier.',
-      'Lightweight interactions that keep the experience fast and readable.',
+      'Template-first workflow for professional PDFs.',
+      'One primary library surface for PDF resources.',
+      'Faster, calmer path from draft to export.',
+      'No distraction from legacy directory or content feeds on this product surface.',
     ],
     primaryLink: {
-      label: 'Browse articles',
-      href: '/articles',
+      label: 'Open PDF library',
+      href: '/pdf',
     },
     secondaryLink: {
-      label: 'See visuals',
-      href: '/images',
+      label: 'Get started',
+      href: '/register',
     },
   },
   cta: {
-    badge: 'Start exploring',
-    title: 'Explore articles, visuals, and resources through one connected experience.',
-    description: 'A PDF + Profile site for Topoftheloop, built for clean discovery and structured publishing.',
+    badge: 'Start your PDF',
+    title: 'Create a PDF profile and export in minutes.',
+    description: 'Pick a path, add your content, and download a polished document when you are ready.',
     primaryCta: {
       label: 'Get Started Free',
       href: '/register',
@@ -102,7 +101,7 @@ export const taskPageMetadata: Record<Exclude<TaskKey, 'comment' | 'org' | 'soci
   },
   pdf: {
     title: 'PDFs and downloadable resources',
-    description: 'A PDF + Profile site for Topoftheloop, built for clean discovery and structured publishing.',
+    description: 'Browse the PDF library, find templates, and build export-ready professional profiles.',
   },
 }
 
@@ -191,14 +190,14 @@ export const taskIntroCopy: Record<
   pdf: {
     title: 'PDFs, documents, and downloadable files',
     paragraphs: [
-      'The PDF library hosts reports, guides, downloadable files, and longer-form document resources that support reading and discovery.',
-      'These resources work alongside stories, listings, and profiles, helping document-style content stay connected to the rest of the platform.',
-      'Browse by category to find relevant files quickly, then continue into related sections when you want more context.',
+      'The PDF library hosts templates, guides, and export-ready profile documents you can download and share.',
+      'Everything here is scoped to professional PDF profiles and related resources—so the experience stays focused.',
+      'Browse by category, open a file, and follow prompts to build or extend your own profile export.',
     ],
     links: [
-      { label: 'Read articles', href: '/articles' },
-      { label: 'See listings', href: '/listings' },
-      { label: 'Explore profiles', href: '/profile' },
+      { label: 'Create PDF profile', href: '/create/pdf' },
+      { label: 'Help center', href: '/help' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   social: {

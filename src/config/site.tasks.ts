@@ -37,7 +37,7 @@ export const siteTaskDefinitions = [
     route: '/profile',
     description: 'Creator and business profiles.',
     contentType: 'profile',
-    enabled: true,
+    enabled: false,
   },
   {
     key: 'sbm',
@@ -57,9 +57,9 @@ export const siteTaskDefinitions = [
   },
   {
     key: 'pdf',
-    label: 'PDF Library',
+    label: 'PDF profiles',
     route: '/pdf',
-    description: 'PDF resources and downloads.',
+    description: 'Templates and export-ready professional PDFs.',
     contentType: 'pdf',
     enabled: true,
   },

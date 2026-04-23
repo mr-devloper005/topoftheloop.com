@@ -7,8 +7,8 @@ export const SITE_RECIPE: SiteRecipe = {
   navbarTemplate: 'compact-bar',
   footerTemplate: 'columns-footer',
   motionPack: 'minimal',
-  primaryTask: 'article',
-  enabledTasks: ['profile'],
+  primaryTask: 'pdf',
+  enabledTasks: ['pdf'],
   taskTemplates: {
     listing: 'listing-directory',
     classified: 'classified-market',

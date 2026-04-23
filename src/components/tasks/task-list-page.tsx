@@ -57,11 +57,22 @@ export async function TaskListPage({ task, category }: { task: TaskKey; category
   }))
   const { recipe } = getFactoryState()
   const layoutKey = recipe.taskLayouts[task as keyof typeof recipe.taskLayouts] || `${task}-${task === 'listing' ? 'directory' : 'editorial'}`
-  const shellClass = variantShells[layoutKey as keyof typeof variantShells] || 'bg-background'
+  const shellClass =
+    task === 'pdf'
+      ? 'bg-[#f4f0e8] text-[#1a1814]'
+      : variantShells[layoutKey as keyof typeof variantShells] || 'bg-background'
   const Icon = taskIcons[task] || LayoutGrid
 
   const isDark = ['image-masonry', 'image-portfolio', 'profile-creator'].includes(layoutKey)
-  const ui = isDark
+  const ui = task === 'pdf'
+    ? {
+        muted: 'text-[#5c5247]',
+        panel: 'border border-[#e6dfd2] bg-white',
+        soft: 'border border-[#e6dfd2] bg-white/80',
+        input: 'border border-[#c8c2b2] bg-white text-slate-950',
+        button: 'bg-[#1a5c45] text-white hover:bg-[#144a38]',
+      }
+    : isDark
     ? {
         muted: 'text-slate-300',
         panel: 'border border-white/10 bg-white/6',
@@ -118,6 +129,44 @@ export async function TaskListPage({ task, category }: { task: TaskKey; category
               hasPart: schemaItems,
             }}
           />
+        ) : null}
+
+        {task === 'pdf' ? (
+          <section className="mb-10 overflow-hidden rounded-3xl border border-[#0f2f24]/20 bg-[#0f2f24] p-6 text-white shadow-[0_24px_64px_rgba(15,47,36,0.18)] sm:p-8 lg:mb-12">
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#b8e060]">PDF library</p>
+                <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Templates and downloadable files</h1>
+                <p className="mt-3 max-w-2xl text-sm leading-7 text-white/75 sm:text-base">
+                  Browse resources you can use as a starting point for a professional export. Open any item to read the full
+                  summary, then jump into create flow when you are ready to make your own PDF profile.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href="/create/pdf"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#b8e060] px-5 py-2.5 text-sm font-semibold text-[#0f1f1a] hover:bg-[#a4cc52]"
+                  >
+                    Create a PDF profile
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/search"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/15"
+                  >
+                    Search
+                  </Link>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">In this list</p>
+                <p className="mt-3 text-sm leading-6 text-white/85">
+                  Posts in this lane are still powered by the same task engine as the rest of the product—the hero above
+                  only updates the look and feel for the PDF experience.
+                </p>
+                <p className="mt-3 text-sm font-medium text-[#b8e060]">{taskConfig?.label || 'PDF profiles'}</p>
+              </div>
+            </div>
+          </section>
         ) : null}
 
         {layoutKey === 'listing-directory' || layoutKey === 'listing-showcase' ? (

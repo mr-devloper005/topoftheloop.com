@@ -3,13 +3,13 @@ import { defineSiteTheme } from '@/config/site.theme.defaults'
 export const SITE_THEME = defineSiteTheme({
   shell: 'directory',
   hero: {
-    variant: 'search-first',
-    eyebrow: 'Business discovery system',
+    variant: 'catalog-promo',
+    eyebrow: 'PDF profile platform',
   },
   home: {
     layout: 'directory-stack',
-    primaryTask: 'listing',
-    featuredTaskKeys: ['listing', 'profile', 'classified'],
+    primaryTask: 'pdf',
+    featuredTaskKeys: ['pdf'],
   },
   navigation: {
     variant: 'compact',
