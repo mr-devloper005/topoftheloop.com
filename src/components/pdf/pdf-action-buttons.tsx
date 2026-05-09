@@ -24,6 +24,10 @@ export function PdfActionButtons({ fileUrl, currentUrl }: PdfActionButtonsProps)
     window.open(fileUrl, '_blank')
   }
 
+  const handleFollow = () => {
+    window.location.href = '/login'
+  }
+
   return (
     <div className="relative">
       <>
@@ -50,6 +54,19 @@ export function PdfActionButtons({ fileUrl, currentUrl }: PdfActionButtonsProps)
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
           Copy Link
+        </button>
+
+        <button
+          onClick={handleFollow}
+          className="group relative inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+        >
+          <span className="relative z-10 flex items-center gap-2">
+            <svg className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            Follow
+          </span>
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </button>
       </>
       

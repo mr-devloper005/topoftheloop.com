@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { FileText, LogOut, Menu, Search, Settings, User } from "lucide-react"
+import { LogOut, Menu, Search, Settings, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -20,8 +20,6 @@ import { cn } from "@/lib/utils"
 const navLinks = [
   { href: "/pdf", label: "Templates" },
   { href: "/about", label: "Why PDF Profile" },
-  { href: "/help", label: "Help" },
-  { href: "/contact", label: "Plans & pricing" },
 ]
 
 function PdfProfileUserMenu() {
@@ -43,12 +41,6 @@ function PdfProfileUserMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56 border-slate-200">
-        <DropdownMenuItem asChild>
-          <Link href="/create/pdf" className="flex items-center gap-2">
-            <FileText className="h-4 w-4" />
-            New PDF profile
-          </Link>
-        </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/dashboard" className="flex items-center gap-2">
             Dashboard
