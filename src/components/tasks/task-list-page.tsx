@@ -143,7 +143,7 @@ export async function TaskListPage({ task, category }: { task: TaskKey; category
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Link
-                    href="/create/pdf"
+                    href="/login"
                     className="inline-flex items-center gap-2 rounded-full bg-[#b8e060] px-5 py-2.5 text-sm font-semibold text-[#0f1f1a] hover:bg-[#a4cc52]"
                   >
                     Create a PDF profile

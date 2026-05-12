@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import {
@@ -9,11 +9,15 @@ import {
   Shield,
   Sparkles,
   Wand2,
+  ArrowRight,
 } from "lucide-react"
 import { ContentImage } from "@/components/shared/content-image"
+import { TaskPostCard } from "@/components/shared/task-post-card"
 import { SITE_CONFIG } from "@/lib/site-config"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { fetchTaskPosts } from "@/lib/task-data"
+import type { SitePost } from "@/lib/site-connector"
 
 const heroImage =
   "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80&auto=format&fit=crop"
@@ -40,6 +44,22 @@ const mockAvatars = [
 export function PdfProfileLanding() {
   const router = useRouter()
   const [q, setQ] = useState("")
+  const [pdfPosts, setPdfPosts] = useState<SitePost[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadPdfs() {
+      try {
+        const posts = await fetchTaskPosts("pdf", 6, { allowMockFallback: true })
+        setPdfPosts(posts)
+      } catch (err) {
+        console.error("Failed to load PDFs", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadPdfs()
+  }, [])
 
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -229,6 +249,38 @@ export function PdfProfileLanding() {
           </div>
         </div>
       </section>
+
+      {pdfPosts.length > 0 && (
+        <section className="bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#1a5c45]">Available PDFs</p>
+                <h2 className="mt-3 text-3xl font-bold text-[#1a1814] sm:text-4xl">Browse PDF Library</h2>
+                <p className="mt-2 text-sm text-[#5c5247]">Explore professional PDF templates and documents</p>
+              </div>
+              <Link
+                href="/pdf"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#1a5c45] px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-[#144a38]"
+              >
+                View all PDFs
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {pdfPosts.slice(0, 6).map((post) => (
+                <TaskPostCard
+                  key={post.id}
+                  post={post}
+                  href={`/pdf/${post.slug}`}
+                  taskKey="pdf"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-[#0f2f24] py-14 text-center text-white">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
