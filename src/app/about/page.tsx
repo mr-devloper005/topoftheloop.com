@@ -1,18 +1,10 @@
 import Link from "next/link"
-import { FileText, Heart, Target, Users } from "lucide-react"
+import { FileText, Heart, Target } from "lucide-react"
 import { PdfMarketingShell } from "@/components/pdf-profile/pdf-marketing-shell"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { mockTeamMembers } from "@/data/mock-data"
 import { SITE_CONFIG } from "@/lib/site-config"
-
-const stats = [
-  { label: "PDF profiles created", value: "12k+" },
-  { label: "Template downloads", value: "85k" },
-  { label: "Countries using exports", value: "40+" },
-]
 
 const values = [
   {
@@ -68,17 +60,6 @@ export default function AboutPage() {
               fragmentation is slow and easy to get wrong. {SITE_CONFIG.name} brings structure, templates, and export
               into a single place—so the PDF you hand someone matches the care you put into the content.
             </p>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl border border-[#e6dfd2] bg-[#f4f0e8]/60 px-4 py-3 text-center"
-                >
-                  <p className="text-2xl font-bold text-[#1a5c45]">{s.value}</p>
-                  <p className="text-xs text-[#5c5247]">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </CardContent>
         </Card>
         <div className="space-y-4">
@@ -95,41 +76,6 @@ export default function AboutPage() {
                   <h3 className="text-lg font-semibold text-[#0f2f24]">{v.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-[#5c5247]">{v.description}</p>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-12">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-          <h2 className="text-2xl font-bold text-[#0f2f24] sm:text-3xl">People behind the product</h2>
-          <Button asChild variant="outline" className="rounded-full border-[#1a5c45] text-[#1a5c45] hover:bg-[#eef4e0]">
-            <Link href="/team">
-              <Users className="mr-1.5 h-4 w-4" />
-              Team directory
-            </Link>
-          </Button>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {mockTeamMembers.map((member) => (
-            <Card
-              key={member.id}
-              className="border-[#e6dfd2] bg-white shadow-sm transition-transform hover:-translate-y-0.5"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-12 w-12 border border-[#e6dfd2]">
-                    <AvatarImage src={member.avatar} alt={member.name} />
-                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-semibold text-[#0f2f24]">{member.name}</p>
-                    <p className="text-xs text-[#5c5247]">{member.role}</p>
-                  </div>
-                </div>
-                <p className="mt-3 text-sm text-[#5c5247]">{member.bio}</p>
-                <p className="mt-2 text-xs text-[#7a7065]">{member.location}</p>
               </CardContent>
             </Card>
           ))}

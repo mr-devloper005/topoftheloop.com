@@ -194,11 +194,7 @@ export const taskIntroCopy: Record<
       'Everything here is scoped to professional PDF profiles and related resources—so the experience stays focused.',
       'Browse by category, open a file, and follow prompts to build or extend your own profile export.',
     ],
-    links: [
-      { label: 'Create PDF profile', href: '/create/pdf' },
-      { label: 'Help center', href: '/help' },
-      { label: 'Contact', href: '/contact' },
-    ],
+    links: [],
   },
   social: {
     title: 'Short updates and community signals',
